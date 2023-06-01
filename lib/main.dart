@@ -22,16 +22,22 @@ class _MyAppState extends State<MyApp> {
       home: Scaffold(
         appBar: AppBar(
       title: const Text('Saturday'),
-        backgroundColor: Colors.amberAccent,
+        backgroundColor: Colors.brown,
         ),
         body: Center(
-          child: SizedBox(
+          child: currentIndex == 0 ? Container(
             width: double.infinity,
-            child: Column(
+            height: double.infinity,
+            color: Colors.lightBlue,
+            child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    foregroundColor: Colors.blueGrey, //color of text
+                    backgroundColor: Colors.orangeAccent, // color of button
+                  ),
                   onPressed: () {
                     // ignore: avoid_print
                     print('I am awesome');
@@ -41,14 +47,18 @@ class _MyAppState extends State<MyApp> {
                   },
                   child: Text(buttonName),
                 ),
-                ElevatedButton(onPressed: (){
-
+                ElevatedButton(onPressed: () {
+                  // ignore: avoid_print
+                  print('I am awesome');
+                  setState(() {
+                    buttonName = 'Submitted';
+                  });
                 },
                     child: Text('I am pretty'),
                 )
               ],
             ),
-          ),
+          ) : Image.asset('images/download.jpg'),
         ),
         bottomNavigationBar: BottomNavigationBar(
           items:  const [
