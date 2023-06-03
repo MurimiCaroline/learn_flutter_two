@@ -58,7 +58,7 @@ class _MyAppState extends State<MyApp> {
                 )
               ],
             ),
-          ) : Image.asset('images/download.jpg'),
+          ) : Image.network('https://pbs.twimg.com/media/E2t_LUeWEAAflHD?format=jpg&name=small'),
         ),
         bottomNavigationBar: BottomNavigationBar(
           items:  const [
