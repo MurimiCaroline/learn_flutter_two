@@ -27,7 +27,7 @@ class FirstPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Title'),
+        title: const Text('First Page'),
       ),
       body: Center(
         child: ElevatedButton(
@@ -52,7 +52,11 @@ class SecondPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Second Page"),
+      ),
+    );
   }
 }
 
