@@ -32,12 +32,12 @@ class MyAppExt extends StatefulWidget {
 class _MyAppExtState extends State<MyAppExt> {
   String buttonName = 'Submit';
   int currentIndex = 0;
-
+  bool is_clicked = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Saturday'),
+        title: const Text('Mi amor'),
         backgroundColor: Colors.brown,
       ),
       body: Center(
@@ -73,7 +73,15 @@ class _MyAppExtState extends State<MyAppExt> {
               )
             ],
           ),
-        ) : Image.network('https://pbs.twimg.com/media/E2t_LUeWEAAflHD?format=jpg&name=small'),
+        ) : GestureDetector(
+          onTap: (){
+            setState(() {
+              is_clicked = !is_clicked;
+            });
+          },
+            child: is_clicked ? Image.network('https://pbs.twimg.com/media/E2t_LUeWEAAflHD?format=jpg&name=small')
+                : Image.network('')
+        ),
       ),
       bottomNavigationBar: BottomNavigationBar(
         items:  const [
@@ -106,6 +114,12 @@ class NextPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         
+      ),
+      body: Center(
+        child: Image.asset(
+            'images/bobima.jpg',
+                fit: BoxFit.cover,
+        ),
       ),
     );
   }
