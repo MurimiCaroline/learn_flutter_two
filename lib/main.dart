@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learn_flutter_two/next_page.dart' show NextPage;
 
 void main() {
   runApp(MyApp());
@@ -44,7 +45,13 @@ class _MyAppExtState extends State<MyAppExt> {
         child: currentIndex == 0 ? Container(
           width: double.infinity,
           height: double.infinity,
-          color: Colors.lightBlue,
+          //color: Colors.lightBlue,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("images/bobima2.jpg"),
+              fit: BoxFit.fill,
+            ),
+          ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -79,8 +86,8 @@ class _MyAppExtState extends State<MyAppExt> {
               is_clicked = !is_clicked;
             });
           },
-            child: is_clicked ? Image.network('https://pbs.twimg.com/media/E2t_LUeWEAAflHD?format=jpg&name=small')
-                : Image.network('')
+            child: is_clicked ? Image.asset('images/bobima1.png')
+                : Image.asset('images/bobima.jpg')
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -106,22 +113,5 @@ class _MyAppExtState extends State<MyAppExt> {
 }
 
 
-class NextPage extends StatelessWidget {
-  const NextPage({Key? key}) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        
-      ),
-      body: Center(
-        child: Image.asset(
-            'images/bobima.jpg',
-                fit: BoxFit.cover,
-        ),
-      ),
-    );
-  }
-}
 
